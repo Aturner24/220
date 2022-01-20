@@ -12,4 +12,3 @@ def monthly_interest():
     billing_day = eval(input("Day of billing cycle:"))
     dailybalance  = ((net_balance * billing_chilling) - (payment * (billing_chilling-billing_day) )) / billing_chilling
     print("Your monthly interest is: $", dailybalance * annual_interest)
-
