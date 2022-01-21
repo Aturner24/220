@@ -1,34 +1,47 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Andrew Turner
+hw1.py
 
 Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 
 
 def calc_rec_area():
-    pass
+    length = eval(input("Enter the length: "))
+    width = eval(input("Enter the width: "))
+    area = length * width
+    print("Area =", area)
 
 
 def calc_volume():
-    pass
+    length = eval(input("Enter Length"))
+    width = eval(input('Enter Width'))
+    height = eval(input('Enter Height'))
+    volume = length * width * height
+    print('Volume =', volume)
 
 
 def shooting_percentage():
-    pass
+    shots_total = eval(input("Enter the player's total shots:"))
+    shots_made = eval(input("Enter how many shots the player made:"))
+    shotpercent = (shots_made/shots_total) * 100
+    print("Shooting Percentage:", shotpercent, "%")
 
 
 def coffee():
-    pass
+    pounds = eval(input("How many pounds of coffee do you want?"))
+    price = (pounds * 11.36) +1.50
+    print("You're total is: $", price)
 
 
 def kilometers_to_miles():
-    pass
+    kilos = eval(input("How many kilometers did you travel?"))
+    miles = .62137 * kilos
+    print("that's", miles," miles!")
+
 
 
 if __name__ == '__main__':
