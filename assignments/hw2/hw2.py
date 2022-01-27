@@ -1,11 +1,10 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Andrew Turner
+hw2.py
 
 Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
 """
 import math
