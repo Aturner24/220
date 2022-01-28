@@ -41,7 +41,7 @@ def sum_squares():
     ur = eval(input("Upper Range:"))
     result = 0
     for multiple in range(lr, ur+1 ):
-        result = (multiple**2) + result
+        result = (multiple*multiple) + result
     print(result)
 
 
@@ -49,7 +49,7 @@ def sum_squares():
 def power():
     base = eval(input("Input base:"))
     exponent = eval(input("Input exponent:"))
-    print(base ** exponent)
+    print(base, "^", exponent, "=",base ** exponent)
 
 if __name__ == '__main__':
     pass
