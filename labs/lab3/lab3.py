@@ -3,7 +3,6 @@ Andrew Turner
 lab3.py
 
 traffic monitoring code lab
-
 """
 
 def traffic():
