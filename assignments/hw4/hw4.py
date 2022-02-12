@@ -1,63 +1,55 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Andrew Turner
+hw4.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
 
-Certification of Authenticity:
-<include one of the following>
-I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
+
 """
-
 from graphics import *
-
+import math
 
 def squares():
-    # Creates a graphical window
-    width = 400
-    height = 400
-    win = GraphWin("Clicks", width, height)
-
-    # number of times user can move circle
-    num_clicks = 5
-
-    # create a space to instruct user
-    inst_pt = Point(width / 2, height - 10)
-    instructions = Text(inst_pt, "Click to move circle")
+    win = GraphWin('Shapes', 700, 700)
+    instructions = Text(Point(350, 100), 'Click to draw a square')
     instructions.draw(win)
-
-    # builds a circle
-    shape = Circle(Point(50, 50), 20)
-    shape.setOutline("red")
-    shape.setFill("red")
-    shape.draw(win)
-
-    # allows the user to click multiple times to move the circle
-    for i in range(num_clicks):
+    for square in range(6):
         click = win.getMouse()
-        center = shape.getCenter()  # center of circle
-
-        # move amount is distance from center of circle to the
-        # point where the user clicked
-        change_x = click.getX() - center.getX()
-        change_y = click.getY() - center.getY()
-        shape.move(change_x, change_y)
-
+        rect = Rectangle(Point(click.getX() - 25, click.getY() - 25), Point(click.getX() + 25, click.getY() + 25))
+        rect.setFill("red")
+        rect.draw(win)
+    instructions.setText('Click again to close')
     win.getMouse()
-    win.close()
-
-
 def rectangle():
-    pass
-
-
+    win = GraphWin("Draw a funny little rectangle", 700, 500)
+    firstpoint = win.getMouse()
+    secondpoint = win.getMouse()
+    rect = Rectangle(Point(firstpoint.getX(), firstpoint.getY()), Point(secondpoint.getX(), secondpoint.getY()))
+    rect.setFill("Green")
+    rect.draw(win)
+    win.getMouse()
 def circle():
-    pass
-
+    win = GraphWin("Draw a circle", 700, 500)
+    p1 = win.getMouse()
+    p2 = win.getMouse()
+    d = math.sqrt((p2.getX() - p1.getX())**2 + (p2.getY() - p1.getY()) **2)
+    circ = Circle(Point(p1.getX(), p1.getY()), d)
+    radius = Text(Point(350, 200), ("Radius:", d))
+    radius.draw(win)
+    circ.draw(win)
+    win.getMouse()
 
 def pi2():
-    pass
+    num = eval(input("Enter number of terms to sum"))
+    thenumber4lmao = 4
+    piaccum = 0
+    for term in range(1, num*2, 2):
+        piaccum = thenumber4lmao/term + piaccum
+        thenumber4lmao = thenumber4lmao * -1
+    print("pi approximation: ", piaccum)
+    print("accuracy", abs(piaccum-math.pi))
+
+
+
 
 
 if __name__ == '__main__':
