@@ -1,43 +1,59 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Andrew Turner
+<hw6>.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
+import math
 
 
 def cash_converter():
-    pass
-
+    print("that is ${0:0.2f}".format(eval(input("enter an integer"))))
 
 def encode():
-    pass
+    message = input("Enter a message to be encoded")
+    key = eval(input("Enter a key to encode the message with"))
+    codedmessage = ''
+    for letter in message:
+        c = ord(letter) + key
+        codedmessage = codedmessage + chr(c)
+    print(codedmessage)
 
 
 def sphere_area(radius):
-    pass
+    print(4*math.pi*(radius**2))
 
 
 def sphere_volume(radius):
-    pass
+    print(4/3*math.pi*(radius**3))
 
 
 def sum_n(number):
-    pass
+    sumaccum = 0
+    for n in range(1, number+1):
+        sumaccum = sumaccum + n
+    print('total:',sumaccum)
 
 
 def sum_n_cubes(number):
-    pass
+    cubeaccum = 0
+    for n in range(1, number+1):
+        cubeaccum = cubeaccum + n**3
+    print(cubeaccum)
 
 
 def encode_better():
-    pass
-
+    message = input("input message to encode")
+    cipher = input("input cipher")
+    newmessage = ''
+    for place in range(len(message)):
+        switch = ord(message[place]) - 65
+        ciphswitch = ord(cipher[place % len(cipher)]) - 65
+        newmessagecode = (switch + ciphswitch) % 58
+        newmessage = newmessage + chr(newmessagecode + 65)
+    print(newmessage)
 
 if __name__ == '__main__':
     # cash_converter()
