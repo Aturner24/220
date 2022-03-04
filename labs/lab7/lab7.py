@@ -1,4 +1,8 @@
-
+"""
+Andrew Turner
+Lab 7 solution
+3/3/2021
+"""
 def weighted_average(in_file_name, out_file_name):
     infile = open(in_file_name, "r")
     outfile = open(out_file_name, "w")
