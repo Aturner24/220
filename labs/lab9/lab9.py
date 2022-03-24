@@ -5,7 +5,7 @@ Name: <your name goes here – first and last>
 
 
 def build_board():
-    pass
+    return [1,2,3,4,5,6,7,8,9]
 
 
 def print_board(board):
@@ -37,31 +37,116 @@ def print_board(board):
 
 
 def is_legal(board, position):
-    pass
+    if str(board[position-1]).isnumeric() == True:
+        return True
+    else:
+        return False
 
 
 def fill_spot(board, position, character):
-    pass
+    character = character.strip()
+    character = character.lower()
+    board[position-1] = character
 
 
-def winning_game(board):
-    pass
-
+def game_is_won(board):
+    if str(board[0]) == str(board[1]) == str(board[2]):
+        return True
+    elif str(board[3]) == str(board[4]) == str(board[5]):
+        return True
+    elif str(board[6]) == str(board[7]) == str(board[8]):
+        return True
+    elif str(board[0]) == str(board[3]) == str(board[6]):
+        return True
+    elif str(board[1]) == str(board[4]) == str(board[7]):
+        return True
+    elif str(board[2]) == str(board[5]) == str(board[8]):
+        return True
+    elif str(board[0]) == str(board[4]) == str(board[8]):
+        return True
+    elif str(board[2]) == str(board[4]) == str(board[6]):
+        return True
+    else:
+        return False
 
 def game_over(board):
-    pass
+    checker = 1
+    for space in board:
+        if str(space).isnumeric() == True:
+            checker = checker * 0
+    if game_is_won(board) == True:
+        return True
+    elif checker == 0:
+        return False
+    else:
+        return True
 
 
 def get_winner(board):
-    pass
+    xtally = 0
+    otally = 0
+    for space in board:
+        if space == "x":
+            xtally = xtally + 1
+        elif space == "o":
+            otally = otally + 1
+        else:
+            pass
+    if game_over(board):
+        if xtally > otally:
+            return "x"
+        if xtally == otally:
+            return "o"
+    else:
+        return None
+
+
 
 
 def play(board):
-    pass
+    playagain = 'y'
+    turn = 1
+    print('instructions')
+    while playagain[0] == 'y':
+        while game_over(board) == False:
+            print_board(board)
+            if turn%2 == 0:
+                print("o's turn")
+                omove = eval(input("o's, choose a position"))
+                if 1<= int(omove) <=9 and is_legal(board, omove):
+                    fill_spot(board, int(omove), "o")
+                else:
+                    print("move is not valid, try again")
+                    turn - 1
+
+                turn = turn + 1
+            else:
+                print("x's turn")
+                xmove = eval(input("x's, choose a position"))
+                if 1 <= int(xmove) <= 9 and is_legal(board, xmove):
+                    fill_spot(board, int(xmove), "x")
+                else:
+                    print("move is not valid, try again")
+                    turn - 1
+                turn = turn + 1
+        if game_is_won(board) == False:
+            print_board(board)
+            print("it's a tie!")
+        else:
+            print_board(board)
+            print(get_winner(board), "won!")
+        playagain = input("Do you want to play again?").lower()
+        if playagain[0] == "y":
+            board = build_board()
+            turn = 1
+
+
+
+
 
 
 def main():
-    pass
+    play(build_board())
 
 
 if __name__ == '__main__':
